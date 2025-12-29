@@ -17,7 +17,7 @@ export function InteractiveFooter() {
       top: Math.random() * 100,
     }));
 
-    // Sử dụng requestAnimationFrame để đẩy việc update state ra khỏi luồng đồng bộ
+    // Use requestAnimationFrame to push state update out of synchronous flow
     requestAnimationFrame(() => {
       setRandomPositions(positions);
       setMounted(true);
