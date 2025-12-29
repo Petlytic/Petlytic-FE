@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef } from 'react';
-import { motion } from 'motion/react';
+import { useState, useRef } from "react";
+import { motion } from "motion/react";
+import Image from "next/image";
 
 interface ToyItem {
   id: number;
@@ -18,38 +19,43 @@ export function ToyShopCarousel() {
   const toys: ToyItem[] = [
     {
       id: 1,
-      name: 'Squeaky Ball',
-      price: '$12.99',
-      image: 'https://images.unsplash.com/photo-1744608257939-1ecbd90f1320?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjB0b3lzJTIwY29sb3JmdWx8ZW58MXx8fHwxNzY2NjgzNzUwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      color: '#FF6B9D',
+      name: "Squeaky Ball",
+      price: "$12.99",
+      image:
+        "https://images.unsplash.com/photo-1744608257939-1ecbd90f1320?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjB0b3lzJTIwY29sb3JmdWx8ZW58MXx8fHwxNzY2NjgzNzUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      color: "#FF6B9D",
     },
     {
       id: 2,
-      name: 'Plush Buddy',
-      price: '$24.99',
-      image: 'https://images.unsplash.com/photo-1732277347628-28234f55c951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwY2F0JTIwcGV0fGVufDF8fHx8MTc2Njc1OTg5M3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      color: '#A855F7',
+      name: "Plush Buddy",
+      price: "$24.99",
+      image:
+        "https://images.unsplash.com/photo-1732277347628-28234f55c951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwY2F0JTIwcGV0fGVufDF8fHx8MTc2Njc1OTg5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      color: "#A855F7",
     },
     {
       id: 3,
-      name: 'Chew Bone',
-      price: '$8.99',
-      image: 'https://images.unsplash.com/photo-1669423919953-689420c08a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGRvZyUyMHBldHxlbnwxfHx8fDE3NjY3NDU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      color: '#22D3EE',
+      name: "Chew Bone",
+      price: "$8.99",
+      image:
+        "https://images.unsplash.com/photo-1669423919953-689420c08a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGRvZyUyMHBldHxlbnwxfHx8fDE3NjY3NDU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      color: "#22D3EE",
     },
     {
       id: 4,
-      name: 'Rope Toy',
-      price: '$15.99',
-      image: 'https://images.unsplash.com/photo-1744608257939-1ecbd90f1320?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjB0b3lzJTIwY29sb3JmdWx8ZW58MXx8fHwxNzY2NjgzNzUwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      color: '#39FF14',
+      name: "Rope Toy",
+      price: "$15.99",
+      image:
+        "https://images.unsplash.com/photo-1744608257939-1ecbd90f1320?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjB0b3lzJTIwY29sb3JmdWx8ZW58MXx8fHwxNzY2NjgzNzUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      color: "#39FF14",
     },
     {
       id: 5,
-      name: 'Puzzle Feeder',
-      price: '$29.99',
-      image: 'https://images.unsplash.com/photo-1732277347628-28234f55c951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwY2F0JTIwcGV0fGVufDF8fHx8MTc2Njc1OTg5M3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      color: '#FF6B9D',
+      name: "Puzzle Feeder",
+      price: "$29.99",
+      image:
+        "https://images.unsplash.com/photo-1732277347628-28234f55c951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwY2F0JTIwcGV0fGVufDF8fHx8MTc2Njc1OTg5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      color: "#FF6B9D",
     },
   ];
 
@@ -66,11 +72,17 @@ export function ToyShopCarousel() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#39FF14] uppercase tracking-widest mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            // Toy Shop
+          <p
+            className="text-[#39FF14] uppercase tracking-widest mb-4"
+            style={{ fontFamily: "JetBrains Mono, monospace" }}
+          >
+            Toy Shop
           </p>
-          <h2 className="text-5xl md:text-7xl mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            <span className="text-white">Trendy</span>{' '}
+          <h2
+            className="text-5xl md:text-7xl mb-6"
+            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+          >
+            <span className="text-white">Trendy</span>{" "}
             <span className="bg-gradient-to-r from-[#FF6B9D] to-[#A855F7] bg-clip-text text-transparent">
               Pet Toys
             </span>
@@ -93,9 +105,9 @@ export function ToyShopCarousel() {
           transition={{
             x: {
               repeat: Infinity,
-              repeatType: 'loop',
+              repeatType: "loop",
               duration: 30,
-              ease: 'linear',
+              ease: "linear",
             },
           }}
         >
@@ -105,23 +117,22 @@ export function ToyShopCarousel() {
               className="relative flex-shrink-0 w-80 h-96 group cursor-pointer"
               whileHover={{ scale: 1.2, rotate: 3 }}
               transition={{
-                type: 'spring',
+                type: "spring",
                 stiffness: 300,
                 damping: 20,
               }}
             >
-              {/* Card */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden">
-                {/* Image */}
-                <img
+                <Image
                   src={toy.image}
                   alt={toy.name}
+                  fill
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                
+
                 {/* Rotating Border */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl"
@@ -134,7 +145,7 @@ export function ToyShopCarousel() {
                   transition={{
                     duration: 3,
                     repeat: Infinity,
-                    ease: 'linear',
+                    ease: "linear",
                   }}
                 />
 
@@ -149,8 +160,8 @@ export function ToyShopCarousel() {
                       className="inline-block px-4 py-1 rounded-full mb-3 text-sm uppercase tracking-wider"
                       style={{
                         backgroundColor: toy.color,
-                        color: '#000',
-                        fontFamily: 'JetBrains Mono, monospace',
+                        color: "#000",
+                        fontFamily: "JetBrains Mono, monospace",
                       }}
                     >
                       New
@@ -159,11 +170,11 @@ export function ToyShopCarousel() {
 
                   <h3
                     className="text-3xl mb-2"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                    style={{ fontFamily: "Space Grotesk, sans-serif" }}
                   >
                     {toy.name}
                   </h3>
-                  
+
                   <motion.div
                     className="flex items-center justify-between"
                     initial={{ opacity: 0 }}
@@ -174,22 +185,22 @@ export function ToyShopCarousel() {
                       className="text-2xl"
                       style={{
                         color: toy.color,
-                        fontFamily: 'Space Grotesk, sans-serif',
+                        fontFamily: "Space Grotesk, sans-serif",
                       }}
                     >
                       {toy.price}
                     </span>
-                    
+
                     <motion.button
                       className="px-6 py-2 rounded-full border-2 uppercase tracking-wider text-sm"
                       style={{
                         borderColor: toy.color,
                         color: toy.color,
-                        fontFamily: 'JetBrains Mono, monospace',
+                        fontFamily: "JetBrains Mono, monospace",
                       }}
                       whileHover={{
                         backgroundColor: toy.color,
-                        color: '#000',
+                        color: "#000",
                       }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -226,7 +237,10 @@ export function ToyShopCarousel() {
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
       >
-        <p className="text-white/50 uppercase tracking-widest" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+        <p
+          className="text-white/50 uppercase tracking-widest"
+          style={{ fontFamily: "JetBrains Mono, monospace" }}
+        >
           Hover to pause • Click to add to cart
         </p>
       </motion.div>

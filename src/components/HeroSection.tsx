@@ -1,22 +1,22 @@
 "use client";
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import confetti from 'canvas-confetti';
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import confetti from "canvas-confetti";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
   });
 
   const textY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleCTAClick = () => {
-    if (typeof window === 'undefined' || !confetti) return;
-    
+    if (typeof window === "undefined" || !confetti) return;
+
     const duration = 2 * 1000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -25,7 +25,7 @@ export function HeroSection() {
       return Math.random() * (max - min) + min;
     }
 
-    const interval: NodeJS.Timeout = setInterval(function() {
+    const interval: NodeJS.Timeout = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -33,18 +33,18 @@ export function HeroSection() {
       }
 
       const particleCount = 50 * (timeLeft / duration);
-      
+
       confetti({
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        colors: ['#FF6B9D', '#A855F7', '#22D3EE', '#FCD34D'],
+        colors: ["#FF6B9D", "#A855F7", "#22D3EE", "#FCD34D"],
       });
       confetti({
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        colors: ['#FF6B9D', '#A855F7', '#22D3EE', '#FCD34D'],
+        colors: ["#FF6B9D", "#A855F7", "#22D3EE", "#FCD34D"],
       });
     }, 250);
   };
@@ -66,7 +66,7 @@ export function HeroSection() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -79,7 +79,7 @@ export function HeroSection() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 1,
           }}
         />
@@ -91,7 +91,7 @@ export function HeroSection() {
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 2,
           }}
         />
@@ -101,18 +101,15 @@ export function HeroSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
-          <motion.div
-            style={{ y: textY, opacity }}
-            className="space-y-8"
-          >
+          <motion.div style={{ y: textY, opacity }} className="space-y-8">
             <motion.p
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="text-pink-600 uppercase tracking-widest"
-              style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              style={{ fontFamily: "JetBrains Mono, monospace" }}
             >
-              // Premium Pet Care
+              Premium Pet Care
             </motion.p>
 
             <motion.h1
@@ -120,7 +117,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-6xl md:text-8xl leading-tight"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
               <span className="block text-gray-900">Where Your</span>
               <span className="block bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
@@ -134,7 +131,9 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl text-gray-600 max-w-lg leading-relaxed"
             >
-              Professional pet care services designed with love. From wellness checks to grooming, we're here to keep your furry friends happy and healthy.
+              Professional pet care services designed with love. From wellness
+              checks to grooming, we&apos;re here to keep your furry friends
+              happy and healthy.
             </motion.p>
 
             <motion.div
@@ -146,8 +145,11 @@ export function HeroSection() {
               <motion.button
                 onClick={handleCTAClick}
                 className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full shadow-lg"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(236, 72, 153, 0.3)' }}
+                style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(236, 72, 153, 0.3)",
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 Book Appointment
@@ -155,8 +157,8 @@ export function HeroSection() {
 
               <motion.button
                 className="px-8 py-4 bg-white border-2 border-gray-300 text-gray-900 rounded-full shadow-lg"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                whileHover={{ scale: 1.05, borderColor: '#A855F7' }}
+                style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                whileHover={{ scale: 1.05, borderColor: "#A855F7" }}
                 whileTap={{ scale: 0.95 }}
               >
                 Learn More
@@ -171,15 +173,21 @@ export function HeroSection() {
               className="flex gap-8 pt-8"
             >
               {[
-                { number: '10K+', label: 'Happy Pets' },
-                { number: '50+', label: 'Expert Staff' },
-                { number: '24/7', label: 'Support' },
+                { number: "10K+", label: "Happy Pets" },
+                { number: "50+", label: "Expert Staff" },
+                { number: "24/7", label: "Support" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  <div
+                    className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+                    style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                  >
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-600" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                  <div
+                    className="text-sm text-gray-600"
+                    style={{ fontFamily: "JetBrains Mono, monospace" }}
+                  >
                     {stat.label}
                   </div>
                 </div>
@@ -202,7 +210,7 @@ export function HeroSection() {
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: "easeInOut",
               }}
             >
               {/* Decorative circles */}
@@ -214,7 +222,7 @@ export function HeroSection() {
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -225,7 +233,7 @@ export function HeroSection() {
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1.5,
                 }}
               />
@@ -240,7 +248,7 @@ export function HeroSection() {
                   transition={{
                     duration: 4,
                     repeat: Infinity,
-                    ease: 'easeInOut',
+                    ease: "easeInOut",
                   }}
                 >
                   🐕
@@ -257,7 +265,7 @@ export function HeroSection() {
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               >
                 🦴
@@ -271,7 +279,7 @@ export function HeroSection() {
                 transition={{
                   duration: 3.5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 0.5,
                 }}
               >
@@ -286,7 +294,7 @@ export function HeroSection() {
                 transition={{
                   duration: 2.5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               >
@@ -301,13 +309,13 @@ export function HeroSection() {
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
           <motion.div
             className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
       </motion.div>

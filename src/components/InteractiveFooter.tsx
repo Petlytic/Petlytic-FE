@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import logoImage from "@/assets/logoImage.png";
 export function InteractiveFooter() {
   const [isAwake, setIsAwake] = useState(false);
@@ -11,26 +12,21 @@ export function InteractiveFooter() {
   >([]);
 
   useEffect(() => {
-    setMounted(true);
-    // Generate random positions once on client
-    setRandomPositions(
-      [...Array(5)].map(() => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-      }))
-    );
-  }, []);
+    const positions = [...Array(5)].map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+    }));
 
-  useEffect(() => {
+    // Sử dụng requestAnimationFrame để đẩy việc update state ra khỏi luồng đồng bộ
+    requestAnimationFrame(() => {
+      setRandomPositions(positions);
+      setMounted(true);
+    });
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight - 100) {
-        setIsAwake(true);
-      } else {
-        setIsAwake(false);
-      }
+      setIsAwake(scrollPosition >= documentHeight - 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -92,8 +88,8 @@ export function InteractiveFooter() {
           {/* Brand */}
           <div className="md:col-span-1">
             <motion.div className="mb-4" whileHover={{ scale: 1.05 }}>
-              <img
-                src={logoImage.src}
+              <Image
+                src={logoImage}
                 alt="Petlytic Logo"
                 className="h-10 w-auto object-contain"
                 style={{
@@ -272,10 +268,10 @@ export function InteractiveFooter() {
               rotate: [0, 10, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 3 + (i % 2) * 2,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 2,
+              delay: (i % 3) * 0.5,
             }}
           >
             🐾

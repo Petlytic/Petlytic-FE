@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import Image from "next/image";
 import logoImage from "@/assets/logoImage.png";
 
 export function AnimatedHeader() {
@@ -72,14 +73,15 @@ export function AnimatedHeader() {
           className="flex items-center gap-2"
           whileHover={{ scale: 1.05 }}
         >
-          <img
-            src={logoImage.src}
+          <Image
+            src={logoImage}
             alt="Petlytic Logo"
             className="h-12 w-auto object-contain"
             style={{
               mixBlendMode: "multiply",
               filter: "brightness(1.1) contrast(1.1)",
             }}
+            priority
           />
         </motion.div>
 
