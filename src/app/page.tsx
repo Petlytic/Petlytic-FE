@@ -1,10 +1,10 @@
 // src/app/page.tsx
-import { AnimatedHeader } from '@/components/AnimatedHeader';
-import { HeroSection } from '@/components/HeroSection';
-import { BentoServices } from '@/components/BentoServices';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { InteractiveFooter } from '@/components/InteractiveFooter';
-import { ScrollAnimations } from '@/components/ScrollAnimations';
+import { AnimatedHeader } from '@/components/common/AnimatedHeader';
+import { HeroSection } from '@/components/common/HeroSection';
+import { BentoServices } from '@/components/common/BentoServices';
+import { TestimonialsSection } from '@/components/common/TestimonialsSection';
+import { InteractiveFooter } from '@/components/common/InteractiveFooter';
+import { ScrollAnimations } from '@/components/common/ScrollAnimations';
 
 export default function Home() {
   return (
