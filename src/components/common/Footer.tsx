@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="sticky bottom-0 bg-gradient-to-r from-[#FFE9DC] to-[#F8D5C1] py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
-          Let's Talk
+          Let&apos;s Talk
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
