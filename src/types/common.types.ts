@@ -1,9 +1,9 @@
-// Common Types
-// TODO: Define common types used across the application
+// src/types/common.types.ts
 export interface User {
   id: string;
   name: string;
   email: string;
+  avatar?: string;
 }
 
 export interface Product {
@@ -11,4 +11,8 @@ export interface Product {
   name: string;
   price: number;
   description: string;
+  image: string;
+  category: string;
+  rating: number;
+  inStock: boolean;
 }
