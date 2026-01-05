@@ -2,3 +2,38 @@
 @source '../**/*.{js,ts,jsx,tsx}';
 
 @import "tw-animate-css";
+
+@theme inline {
+  /* --- GREEN (Success / Primary) --- */
+  --color-brand-green-light: #eef5ee;
+  --color-brand-green: #559b54;
+  --color-brand-green-hover: #4d8c4c;
+  --color-brand-green-active: #447c43;
+  --color-brand-green-dark: #40743f;
+  --color-brand-green-darker: #1e361d;
+
+  /* --- YELLOW (Warning / Highlight) --- */
+  --color-brand-yellow-light: #fffef9;
+  --color-brand-yellow: #fcf2c0;
+  --color-brand-yellow-hover: #e3daad;
+  --color-brand-yellow-dark: #bdb690;
+  --color-brand-yellow-darker: #585543;
+
+  /* --- VIOLET (Accent / Creative) --- */
+  --color-brand-violet-light: #f6f7ff;
+  --color-brand-violet: #a8abff;
+  --color-brand-violet-hover: #979ae6;
+  --color-brand-violet-dark: #7e80bf;
+  --color-brand-violet-darker: #3b3c59;
+
+  /* --- BLUE (Info / Links) --- */
+  --color-brand-blue-light: #eff8fd;
+  --color-brand-blue: #63b8ee;
+  --color-brand-blue-hover: #59a6d6;
+  --color-brand-blue-dark: #4a8ab3;
+  --color-brand-blue-darker: #234053;
+  /* Custom brand palette for logo/UI */
+  --color-brand-blue-500: #4988b1;
+  --color-brand-green-500: #6fbc84;
+  --color-brand-green-600: #5faa73;
+}

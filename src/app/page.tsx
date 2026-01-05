@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import { Header } from "@/components/common/Header";
+import { Footer } from "@/components/common/Footer";
 import { ProductCard } from "@/components/features/Products/ProductCard";
 import { ProductFilters } from "@/components/features/Products/ProductFilters";
 import { Product } from "@/types/common.types";
@@ -107,6 +108,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
