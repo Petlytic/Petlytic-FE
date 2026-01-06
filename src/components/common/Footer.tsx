@@ -1,19 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import catLandingPage from "@/assets/catLandingPage.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="sticky bottom-0 bg-gradient-to-r from-[#FFE9DC] to-[#F8D5C1] py-10">
+    <footer className="bg-gradient-to-r from-[#FFE9DC] to-[#F8D5C1] py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
           Let&apos;s Talk
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
           {/* Explore */}
           <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
@@ -86,7 +88,7 @@ export function Footer() {
           </div>
 
           {/* Mail for more informations */}
-          <div className="md:col-span-1">
+          <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
               Mail for more informations
             </h3>
@@ -100,6 +102,17 @@ export function Footer() {
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
+          </div>
+
+          {/* Category Landing Page Image */}
+          <div className="flex justify-center items-center">
+            <Image
+              src={catLandingPage}
+              alt="Category Landing Page"
+              width={128}
+              height={128}
+              className="object-contain"
+            />
           </div>
         </div>
       </div>

@@ -12,3 +12,19 @@ export interface CartItem {
   quantity: number;
   price: number;
 }
+
+export interface ReviewItem {
+  id: string;
+  author: string;
+  rating: number;
+  comment: string;
+  avatar: string;
+}
+
+export interface ProductShowcaseItem {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  reviews: ReviewItem[];
+}
