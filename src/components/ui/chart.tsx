@@ -104,6 +104,21 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
 
+type TooltipPayloadItem = {
+  dataKey?: string | number;
+  name?: string;
+  value?: number | string;
+  color?: string;
+  payload?: Record<string, unknown>;
+  fill?: string;
+};
+
+type LegendPayloadItem = {
+  dataKey?: string | number;
+  value?: string;
+  color?: string;
+};
+
 function ChartTooltipContent({
   active,
   payload,
@@ -120,15 +135,18 @@ function ChartTooltipContent({
   labelKey,
 }: {
   active?: boolean;
-  payload?: Array<any>;
+  payload?: Array<TooltipPayloadItem>;
   label?: string | number;
-  labelFormatter?: (value: any, payload: any) => React.ReactNode;
+  labelFormatter?: (
+    value: React.ReactNode,
+    payload: TooltipPayloadItem[]
+  ) => React.ReactNode;
   formatter?: (
-    value: any,
+    value: number | string,
     name: string,
-    entry: any,
+    entry: TooltipPayloadItem,
     index: number,
-    payload: any
+    payload: Record<string, unknown>
   ) => React.ReactNode;
   contentStyle?: React.CSSProperties;
   className?: string;
@@ -196,7 +214,7 @@ function ChartTooltipContent({
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`;
           const itemConfig = getPayloadConfigFromPayload(config, item, key);
-          const indicatorColor = color || item.payload.fill || item.color;
+          const indicatorColor = color || item.payload?.fill || item.color;
 
           return (
             <div
@@ -207,7 +225,13 @@ function ChartTooltipContent({
               )}
             >
               {formatter && item?.value !== undefined && item.name ? (
-                formatter(item.value, item.name, item, index, item.payload)
+                formatter(
+                  item.value,
+                  item.name,
+                  item,
+                  index,
+                  item.payload ?? {}
+                )
               ) : (
                 <>
                   {itemConfig?.icon ? (
@@ -271,11 +295,11 @@ function ChartLegendContent({
   verticalAlign = "bottom",
   nameKey,
 }: React.ComponentProps<"div"> & {
-    payload?: Array<any>;
-    verticalAlign?: "top" | "bottom" | "middle";
-    hideIcon?: boolean;
-    nameKey?: string;
-  }) {
+  payload?: Array<LegendPayloadItem>;
+  verticalAlign?: "top" | "bottom" | "middle";
+  hideIcon?: boolean;
+  nameKey?: string;
+}) {
   const { config } = useChart();
 
   if (!payload?.length) {
