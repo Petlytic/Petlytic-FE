@@ -74,7 +74,7 @@ function HeaderContent() {
   const { mutate: logout } = useLogout();
 
   return (
-    <div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+    <div className="px-4 sm:px-8 h-20 md:h-24 flex items-center justify-between w-full max-w-none">
       {/* --- LOGO SECTION --- */}
       <Link href="/" className="flex items-center gap-3 md:gap-4">
         <div className="relative w-14 h-14 md:w-48 md:h-20">
@@ -98,7 +98,7 @@ function HeaderContent() {
       </nav>
 
       {/* --- AUTH BUTTONS (Desktop) --- */}
-      <div className="hidden xl:flex items-center gap-6">
+      <div className="hidden xl:flex items-center">
         {isAuthenticated ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
