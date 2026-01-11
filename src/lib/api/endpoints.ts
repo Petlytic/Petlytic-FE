@@ -1,6 +1,6 @@
 // API endpoints
-// TODO: Define all API endpoints as constants
 const AUTH_PREFIX = "/auth";
+const USER_PREFIX = "/users";
 export const endpoints = {
   // API endpoints
   auth: {
@@ -11,5 +11,8 @@ export const endpoints = {
     verify: `${AUTH_PREFIX}/verify`,
     resend: `${AUTH_PREFIX}/resend`,
     google: `${AUTH_PREFIX}/google`,
+  },
+  user: {
+    me: `${USER_PREFIX}/me`,
   },
 } as const;

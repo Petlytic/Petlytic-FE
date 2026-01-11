@@ -1,9 +1,31 @@
 // src/types/common.types.ts
+export interface Authority {
+  authority: string;
+}
+
 export interface User {
   id: string;
-  name: string;
+  username: string;
   email: string;
-  avatar?: string;
+  avatarUrl?: string;
+  role: string;
+}
+
+export interface UserProfile {
+  id: string;
+  username: string;
+  email: string;
+  phoneNumber: string;
+  active: boolean;
+  avatarUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+  role: string;
+  enabled: boolean;
+  accountNonLocked: boolean;
+  authorities: Authority[];
+  credentialsNonExpired: boolean;
+  accountNonExpired: boolean;
 }
 
 export interface Product {
