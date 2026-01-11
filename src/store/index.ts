@@ -1,14 +1,15 @@
 // Redux store configuration
 import { configureStore } from "@reduxjs/toolkit";
 
-// TODO: Import slices when ready
-// import authSlice from './slices/authSlice'
-// import productsSlice from './slices/productsSlice'
-// import cartSlice from './slices/cartSlice'
+import authSlice from "./slices/authSlice";
+import productsSlice from "./slices/productsSlice";
+import cartSlice from "./slices/cartSlice";
 
 export const store = configureStore({
   reducer: {
-    // Add slices here
+    auth: authSlice,
+    products: productsSlice,
+    cart: cartSlice,
   },
 });
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,8 +12,6 @@ import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logoImage.png";
 
 export default function RegisterPage() {
-  const router = useRouter();
-
   const handleRegister = async (data: RegisterFormData) => {
     try {
       // TODO: Implement API call using data from auth.types.ts

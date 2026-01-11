@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLogin } from "@/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,13 +27,10 @@ const loginSchema = z.object({
 
 export type LoginFormData = z.infer<typeof loginSchema>;
 
-interface LoginFormProps {
-  onSubmit: (data: LoginFormData) => void;
-}
-
-export function LoginForm({ onSubmit }: LoginFormProps) {
+export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const { mutate: login, isPending } = useLogin();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -42,20 +40,12 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
     },
   });
 
-  const handleSubmit = async (data: LoginFormData) => {
-    try {
-      setIsLoading(true);
-      await onSubmit(data);
-    } catch (error) {
-      console.error("Login error:", error);
-    } finally {
-      setIsLoading(false);
-    }
+  const onSubmit = (data: LoginFormData) => {
+    login(data);
   };
-
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {/* Email Field */}
         <FormField
           control={form.control}
@@ -71,7 +61,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
                     type="email"
                     placeholder="Enter your email"
                     className="pl-10"
-                    disabled={isLoading}
+                    disabled={isPending}
                   />
                 </div>
               </FormControl>
@@ -95,7 +85,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     className="pl-10 pr-10"
-                    disabled={isLoading}
+                    disabled={isPending}
                   />
                   <button
                     type="button"
@@ -119,9 +109,9 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
         <Button
           type="submit"
           className="w-full bg-brand-green-500 hover:bg-brand-green-600"
-          disabled={isLoading}
+          disabled={isPending}
         >
-          {isLoading ? "Logging in..." : "Login"}
+          {isPending ? "Logging in..." : "Login"}
         </Button>
       </form>
     </Form>
