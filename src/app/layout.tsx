@@ -1,6 +1,10 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import "../styles/index.css"; 
+import { ReduxProvider } from "@/components/providers/ReduxProvider";
+import { AuthProvider } from "@/components/providers/AuthProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { TanstackQueryProvider } from "@/components/providers/TanstackQueryProvider";
+import "../styles/index.css";
 
 export const metadata: Metadata = {
   title: "Petlytic - Premium Pet Care",
@@ -13,9 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className="antialiased">
-        {children}
+        <ReduxProvider>
+          <TanstackQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+              <AuthProvider>{children}</AuthProvider>
+            </ThemeProvider>
+          </TanstackQueryProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

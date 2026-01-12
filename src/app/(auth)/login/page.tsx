@@ -1,35 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { LoginForm, LoginFormData } from "@/components/features/Auth/LoginForm";
+import { LoginForm } from "@/components/features/Auth/LoginForm";
 import { AuthCard } from "@/components/features/Auth/AuthCard";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logoImage.png";
 
 export default function LoginPage() {
-  const router = useRouter();
-
-  const handleLogin = async (data: LoginFormData) => {
-    try {
-      // TODO: Implement API call using data from auth.types.ts
-      console.log("Login data:", data);
-      
-      // Example API call structure:
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   body: JSON.stringify(data),
-      // });
-      
-      // Temporary redirect for demo
-      // router.push('/dashboard');
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFE9DC] to-[#F8D5C1] p-4">
       <div className="w-full max-w-md space-y-6">
@@ -54,7 +33,7 @@ export default function LoginPage() {
           description="Login to your account to continue"
         >
           <div className="space-y-6">
-            <LoginForm onSubmit={handleLogin} />
+            <LoginForm />
 
             {/* Divider */}
             <div className="relative">

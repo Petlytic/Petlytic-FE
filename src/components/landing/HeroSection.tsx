@@ -25,7 +25,7 @@ export const HeroSection = () => {
             <Link href="/booking">
               <Button
                 size="lg"
-                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-8"
+                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-12 py-6 text-xl"
               >
                 Book Now
               </Button>
@@ -33,7 +33,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Right - Pet Mascot */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center ">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Simple Dog Mascot Circle */}
               <div className="text-center">
