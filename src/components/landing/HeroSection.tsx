@@ -9,13 +9,18 @@ export const HeroSection = () => {
   return (
     <section className="relative overflow-hidden  min-h-[500px] flex items-center">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 justify-items-center">
           {/* Left Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <div className="space-y-3">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Next Gen Care for Your{" "}
-                <span className="text-blue-600">Furry Bestie</span>
+                Next Gen Care for
+              </h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Your{" "}
+                <span>
+                  <span className="text-blue-600">Furry Bestie</span>
+                </span>
               </h1>
               <p className="text-lg text-gray-600">
                 Loving services for a happy, healthy pet
@@ -33,19 +38,16 @@ export const HeroSection = () => {
           </div>
 
           {/* Right - Pet Mascot */}
-          <div className="flex justify-center ">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              {/* Simple Dog Mascot Circle */}
-              <div className="text-center">
-                <Image
-                  src={dogLandingPage}
-                  alt="Happy Pet"
-                  width={256}
-                  height={256}
-                  className="mx-auto w-64 h-64 md:w-80 md:h-80"
-                />
-                <p className="text-sm font-semibold mt-2">Happy Pet</p>
-              </div>
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            {/* Simple Dog Mascot Circle */}
+            <div className="text-center">
+              <Image
+                src={dogLandingPage}
+                alt="Happy Pet"
+                width={256}
+                height={256}
+                className="mx-auto w-64 h-64 md:w-80 md:h-80"
+              />
             </div>
           </div>
         </div>

@@ -16,10 +16,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const { data } = await apiClient.post(endpoints.auth.refreshToken);
 
-        if (data?.result?.access_token) {
+        if (data?.result?.accessToken) {
           dispatch(
             setCredentials({
-              accessToken: data.result.access_token,
+              accessToken: data.result.accessToken,
             })
           );
         }

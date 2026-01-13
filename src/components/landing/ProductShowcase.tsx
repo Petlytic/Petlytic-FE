@@ -32,14 +32,16 @@ const SHOWCASE_PRODUCTS: ProductShowcaseItem[] = [
         id: "r1",
         author: "Review A",
         rating: 5,
-        comment: "My pet loves it!",
+        comment:
+          "My pet loves itmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm!",
         avatar: "👩",
       },
       {
         id: "r2",
         author: "Review B",
         rating: 5,
-        comment: "Great quality",
+        comment:
+          "Great quality!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
         avatar: "👨",
       },
     ],
@@ -193,7 +195,6 @@ const SHOWCASE_PRODUCTS: ProductShowcaseItem[] = [
   },
 ];
 
-// Component hiển thị một review bubble
 const ReviewBubble = ({
   review,
   positionClass,
@@ -203,9 +204,8 @@ const ReviewBubble = ({
 }) => (
   <div
     className={`absolute ${positionClass} z-0 w-48 bg-white border-2 border-pink-200 rounded-2xl p-3 shadow-sm transition-transform duration-300 group-hover:scale-105`}
-    // Thêm style để tạo cái "đuôi" cho bong bóng hội thoại (tùy chọn)
     style={{
-      boxShadow: "4px 4px 0px 0px rgba(249, 168, 212, 0.5)", // Hiệu ứng bóng cứng màu hồng
+      boxShadow: "4px 4px 0px 0px rgba(249, 168, 212, 0.5)",
     }}
   >
     <div className="flex items-center gap-2 mb-1">
@@ -214,7 +214,7 @@ const ReviewBubble = ({
       </span>
       <span className="font-bold text-gray-800 text-xs">{review.author}</span>
     </div>
-    <p className="text-gray-700 text-xs italic relative z-10">
+    <p className="text-gray-700 text-xs italic relative z-10 text-wrap break-words line-clamp-5">
       &quot;{review.comment}&quot;
     </p>
   </div>
@@ -226,19 +226,12 @@ export const ProductShowcase = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900">Trendy Pet Toys</h2>
-          <Link href="/products">
-            <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-pink-300 bg-background hover:bg-pink-50 hover:text-accent-foreground h-10 px-4 py-2 text-pink-600">
-              View All
-            </div>
-          </Link>
         </div>
-
         <Carousel className="w-full overflow-visible" opts={{ align: "start" }}>
           <CarouselContent className="-ml-4 overflow-visible">
             {SHOWCASE_PRODUCTS.map((product, index) => {
               const isEven = index % 2 === 0;
 
-              // Thay đổi ở đây: Đẩy vị trí xuống thấp hơn nhiều (-bottom-32, -bottom-40...)
               const pos1 = isEven
                 ? "-bottom-32 -left-8 rotate-[-2deg]"
                 : "-bottom-40 -left-4 rotate-[-1deg]";
@@ -249,11 +242,9 @@ export const ProductShowcase = () => {
               return (
                 <CarouselItem
                   key={product.id}
-                  // Thay đổi ở đây: Tăng padding-bottom lên pb-56 để tạo khoảng trống lớn
                   className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 pt-10 pb-56 overflow-visible"
                 >
                   <div className="relative group h-full w-full">
-                    {/* Review bubbles layer */}
                     <div className="absolute inset-0 z-0 pointer-events-none">
                       {product.reviews[0] && (
                         <ReviewBubble
@@ -269,7 +260,6 @@ export const ProductShowcase = () => {
                       )}
                     </div>
 
-                    {/* Product card - Giữ nguyên thiết kế */}
                     <div className="relative z-10 bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full transform group-hover:-translate-y-2">
                       <div className="h-80 bg-gray-200 overflow-hidden relative rounded-t-2xl">
                         <Image
@@ -302,9 +292,18 @@ export const ProductShowcase = () => {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex -left-12 bg-white/80 hover:bg-white border-pink-200 text-pink-700" />
-          <CarouselNext className="hidden sm:flex -right-12 bg-white/80 hover:bg-white border-pink-200 text-pink-700" />
+          <CarouselPrevious className="hidden sm:flex -left-20 h-16 w-16 bg-white hover:bg-pink-50 border-2 border-pink-200 text-pink-700 shadow-xl top-[240px] -translate-y-1/2"></CarouselPrevious>
+
+          <CarouselNext className="hidden sm:flex -right-20 h-16 w-16 bg-white hover:bg-pink-50 border-2 border-pink-200 text-pink-700 shadow-xl top-[240px] -translate-y-1/2"></CarouselNext>
         </Carousel>
+        <div className="flex justify-center w-full">
+          {" "}
+          <Link href="/products">
+            <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-pink-300 bg-background hover:bg-pink-50 hover:text-accent-foreground h-10 px-4 py-2 text-pink-600">
+              View All
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );

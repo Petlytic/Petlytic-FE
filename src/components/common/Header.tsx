@@ -43,10 +43,7 @@ function NavLink({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isActive =
-    pathname === href ||
-    (href === "/" && pathname === "/") ||
-    href === "/services";
+  const isActive = pathname === href || (href === "/" && pathname === "/");
 
   return (
     <Link
@@ -91,14 +88,15 @@ function HeaderContent() {
       {/* --- DESKTOP NAV --- */}
       <nav className="hidden xl:flex items-center gap-12 2xl:gap-16">
         {" "}
-        <NavLink href="/services">Services</NavLink>
+        <NavLink href="/">Home</NavLink>
         <NavLink href="/shop">Shop</NavLink>
+        <NavLink href="/services">Services</NavLink>
         <NavLink href="/about">About</NavLink>
         <NavLink href="/contact">Contact</NavLink>
       </nav>
 
       {/* --- AUTH BUTTONS (Desktop) --- */}
-      <div className="hidden xl:flex items-center">
+      <div className="hidden xl:flex items-center gap-4 md:gap-6">
         {isAuthenticated ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#FFE9DC] to-[#F8D5C1] py-10">
+    <footer className="bg-gradient-to-b from-[#FFE9DC] to-[#F8D5C1] py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
           Let&apos;s Talk
