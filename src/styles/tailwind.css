@@ -5,35 +5,50 @@
 
 @theme inline {
   /* --- GREEN (Success / Primary) --- */
-  --color-brand-green-light: #eef5ee;
-  --color-brand-green: #559b54;
-  --color-brand-green-hover: #4d8c4c;
-  --color-brand-green-active: #447c43;
-  --color-brand-green-dark: #40743f;
-  --color-brand-green-darker: #1e361d;
+  --color-brand-green-50: #eef5ee;        /* Light */
+  --color-brand-green-100: #dfeadf;       /* Light hover */
+  --color-brand-green-200: #e0f2e0;       /* Light active */
+  --color-brand-green-300: #85c384;       /* Normal */
+  --color-brand-green-400: #77b676;       /* Normal hover */
+  --color-brand-green-500: #6ba86a;       /* Normal active */
+  --color-brand-green-600: #589758;       /* Dark */
+  --color-brand-green-700: #355f35;       /* Dark hover */
+  --color-brand-green-800: #264c26;       /* Dark active */
+  --color-brand-green-900: #1e361d;       /* Darker */
 
   /* --- YELLOW (Warning / Highlight) --- */
-  --color-brand-yellow-light: #fffef9;
-  --color-brand-yellow: #fcf2c0;
-  --color-brand-yellow-hover: #e3daad;
-  --color-brand-yellow-dark: #bdb690;
-  --color-brand-yellow-darker: #585543;
+  --color-brand-yellow-50: #fffef9;       /* Light */
+  --color-brand-yellow-100: #fffdfd;      /* Light hover */
+  --color-brand-yellow-200: #fefdfd;      /* Light active */
+  --color-brand-yellow-300: #fcf2c0;      /* Normal */
+  --color-brand-yellow-400: #dbd6ab;      /* Normal hover */
+  --color-brand-yellow-400: #cbc29c;      /* Normal active */
+  --color-brand-yellow-600: #bcb690;      /* Dark */
+  --color-brand-yellow-700: #696051;      /* Dark hover */
+  --color-brand-yellow-800: #605858;      /* Dark active */
+  --color-brand-yellow-900: #585543;      /* Darker */
 
   /* --- VIOLET (Accent / Creative) --- */
-  --color-brand-violet-light: #f6f7ff;
-  --color-brand-violet: #a8abff;
-  --color-brand-violet-hover: #979ae6;
-  --color-brand-violet-dark: #7e80bf;
-  --color-brand-violet-darker: #3b3c59;
+  --color-brand-violet-50: #f6f7ff;       /* Light */
+  --color-brand-violet-100: #f2f3ff;      /* Light hover */
+  --color-brand-violet-200: #e4e5ff;      /* Light active */
+  --color-brand-violet-300: #a8abff;      /* Normal */
+  --color-brand-violet-400: #9a9de6;      /* Normal hover */
+  --color-brand-violet-500: #8c8fcc;      /* Normal active */
+  --color-brand-violet-600: #7e80bf;      /* Dark */
+  --color-brand-violet-700: #585a99;      /* Dark hover */
+  --color-brand-violet-800: #4b4d7f;      /* Dark active */
+  --color-brand-violet-900: #3b3c59;      /* Darker */
 
   /* --- BLUE (Info / Links) --- */
-  --color-brand-blue-light: #eff8fd;
-  --color-brand-blue: #63b8ee;
-  --color-brand-blue-hover: #59a6d6;
-  --color-brand-blue-dark: #4a8ab3;
-  --color-brand-blue-darker: #234053;
-  /* Custom brand palette for logo/UI */
-  --color-brand-blue-500: #4988b1;
-  --color-brand-green-500: #6fbc84;
-  --color-brand-green-600: #5faa73;
+  --color-brand-blue-50: #eff8fd;         /* Light */
+  --color-brand-blue-100: #e7f6fc;        /* Light hover */
+  --color-brand-blue-200: #cfeffe;        /* Light active */
+  --color-brand-blue-300: #63b8ee;        /* Normal */
+  --color-brand-blue-400: #59a6d6;        /* Normal hover */
+  --color-brand-blue-500: #4f8ec0;        /* Normal active */
+  --color-brand-blue-600: #4a8ab3;        /* Dark */
+  --color-brand-blue-700: #385f7e;        /* Dark hover */
+  --color-brand-blue-800: #2d4c66;        /* Dark active */
+  --color-brand-blue-900: #234053;        /* Darker */
 }
