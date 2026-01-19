@@ -51,4 +51,16 @@
   --color-brand-blue-700: #385f7e;        /* Dark hover */
   --color-brand-blue-800: #2d4c66;        /* Dark active */
   --color-brand-blue-900: #234053;        /* Darker */
+
+  /* --- ORANGE (Error / Alerts) --- */
+  --color-brand-orange-50: #fff7f3;       /* Light */
+  --color-brand-orange-100: #fff2ed;      /* Light hover */
+  --color-brand-orange-200: #ffe6dc;      /* Light active */
+  --color-brand-orange-300: #ffb19a;      /* Normal */
+  --color-brand-orange-400: #e69883;      /* Normal hover */
+  --color-brand-orange-500: #cc7f6e;      /* Normal active */
+  --color-brand-orange-600: #b36e5f;      /* Dark */
+  --color-brand-orange-700: #7e4a3f;      /* Dark hover */
+  --color-brand-orange-800: #664033;      /* Dark active */
+  --color-brand-orange-900: #55332a;      /* Darker */
 }
