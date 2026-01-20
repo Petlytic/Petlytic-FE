@@ -1,0 +1,52 @@
+{
+  "Header": {
+    "home": "Home",
+    "shop": "Shop",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "myProfile": "My Profile",
+    "settings": "Settings",
+    "logout": "Log out",
+    "language" : "Language"
+  },
+  "Footer": {
+    "title": "Let's Talk",
+    "explore": "Explore",
+    "services": "Services",
+    "shop": "Shop",
+    "company": "Company",
+    "about": "About Us",
+    "team": "Our Team",
+    "connect": "Connect",
+    "contact": "Contact",
+    "newsletterTitle": "Get more information",
+    "emailPlaceholder": "Enter your email..."
+  },
+  "LanguageSwitcher": {
+    "label": "Switch Language"
+  },
+  "LandingPage": {
+    "HeroSection": {
+      "titleLine1": "Next Gen Care for",
+      "titleLine2Prefix": "Your",
+      "titleLine2Highlight": "Furry Bestie",
+      "description": "Loving services for a happy, healthy pet",
+      "bookBtn": "Book Now"
+    },
+    "ServicesBento": {
+      "vetTitle": "Vet Services",
+      "vetDesc": "Health consulting",
+      "spaTitle": "Pet Spa",
+      "spaDesc": "Wellness relaxing",
+      "hotelTitle": "Pet Hotel",
+      "hotelDesc": "Comfortable staying"
+    },
+    "ProductShowcase": {
+      "title": "Trendy Pet Toys",
+      "viewAll": "View All"
+    }
+  }
+}

@@ -2,29 +2,35 @@
 
 import { Button } from "@/components/ui/button";
 import dogLandingPage from "@/assets/dogLandingPage.png";
-import Link from "next/link";
 import Image from "next/image";
+// 1. Nhớ đổi Link sang loại support i18n
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export const HeroSection = () => {
+  // 2. Khai báo hook
+  const t = useTranslations("LandingPage.HeroSection");
+
   return (
-    <section className="relative overflow-hidden  min-h-[500px] flex items-center">
+    <section className="relative overflow-hidden min-h-[500px] flex items-center">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12 justify-items-center">
-          {/* Left Content */}
-          <div className="space-y-6 ">
+          <div className="space-y-6">
             <div className="space-y-3">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Next Gen Care for
+                {t("titleLine1")}
               </h1>
+
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Your{" "}
+                {t("titleLine2Prefix")}{" "}
                 <span>
-                  <span className="text-blue-600">Furry Bestie</span>
+                  <span className="text-blue-600">
+                    {t("titleLine2Highlight")}
+                  </span>
                 </span>
               </h1>
-              <p className="text-lg text-gray-600">
-                Loving services for a happy, healthy pet
-              </p>
+
+              <p className="text-lg text-gray-600">{t("description")}</p>
             </div>
 
             <Link href="/booking">
@@ -32,14 +38,12 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-12 py-6 text-xl"
               >
-                Book Now
+                {t("bookBtn")}
               </Button>
             </Link>
           </div>
 
-          {/* Right - Pet Mascot */}
           <div className="relative w-64 h-64 md:w-80 md:h-80">
-            {/* Simple Dog Mascot Circle */}
             <div className="text-center">
               <Image
                 src={dogLandingPage}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import {
   Carousel,
@@ -11,6 +11,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import type { ProductShowcaseItem } from "@/types/domain.types";
+import { useTranslations } from "next-intl";
 
 type ProductReview = {
   id: string;
@@ -221,11 +222,12 @@ const ReviewBubble = ({
 );
 
 export const ProductShowcase = () => {
+  const t = useTranslations("LandingPage.ProductShowcase");
   return (
     <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50 overflow-hidden min-h-screen">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">Trendy Pet Toys</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("title")}</h2>
         </div>
         <Carousel className="w-full overflow-visible" opts={{ align: "start" }}>
           <CarouselContent className="-ml-4 overflow-visible">
@@ -300,7 +302,7 @@ export const ProductShowcase = () => {
           {" "}
           <Link href="/products">
             <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-pink-300 bg-background hover:bg-pink-50 hover:text-accent-foreground h-10 px-4 py-2 text-pink-600">
-              View All
+              {t("viewAll")}
             </div>
           </Link>
         </div>
