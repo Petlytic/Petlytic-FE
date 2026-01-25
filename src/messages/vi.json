@@ -1,0 +1,52 @@
+{
+  "Header": {
+    "home": "Trang chủ",
+    "shop": "Cửa hàng",
+    "services": "Dịch vụ",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "myProfile": "Hồ sơ của tôi",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "language" : "Ngôn ngữ"
+  },
+  "Footer": {
+    "title": "Trò chuyện ngay",
+    "explore": "Khám phá",
+    "services": "Dịch vụ",
+    "shop": "Cửa hàng",
+    "company": "Công ty",
+    "about": "Về chúng tôi",
+    "team": "Đội ngũ",
+    "connect": "Kết nối",
+    "contact": "Liên hệ",
+    "newsletterTitle": "Đăng ký nhận tin",
+    "emailPlaceholder": "Nhập email của bạn..."
+  },
+  "LanguageSwitcher": {
+    "label": "Đổi ngôn ngữ"
+  },
+  "LandingPage": {
+    "HeroSection": {
+      "titleLine1": "Chăm sóc thế hệ mới cho",
+      "titleLine2Prefix": "người bạn",
+      "titleLine2Highlight": "Bốn chân",
+      "description": "Dịch vụ tận tâm vì thú cưng khỏe mạnh",
+      "bookBtn": "Đặt lịch ngay"
+    },
+    "ServicesBento": {
+      "vetTitle": "Dịch vụ Thú y",
+      "vetDesc": "Tư vấn sức khỏe",
+      "spaTitle": "Spa Thú cưng",
+      "spaDesc": "Thư giãn & Trị liệu",
+      "hotelTitle": "Khách sạn Thú cưng",
+      "hotelDesc": "Lưu trú thoải mái"
+    },
+    "ProductShowcase": {
+      "title": "Đồ chơi xu hướng",
+      "viewAll": "Xem tất cả"
+    }
+  }
+}

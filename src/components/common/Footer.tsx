@@ -6,69 +6,73 @@ import catLandingPage from "@/assets/catLandingPage.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="bg-gradient-to-b from-[#FFE9DC] to-[#F8D5C1] py-10">
       <div className="container mx-auto px-4">
+        {/* --- TITLE --- */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
-          Let&apos;s Talk
+          {t("title")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
-          {/* Explore */}
+          {/* --- Explore --- */}
           <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
-              Explore
+              {t("explore")}
             </h3>
             <div className="flex flex-col gap-2">
               <Link
                 href="/services"
                 className="text-sm md:text-base lg:text-lg hover:underline"
               >
-                Services
+                {t("services")}
               </Link>
               <Link
                 href="/shop"
                 className="text-sm md:text-base lg:text-lg hover:underline"
               >
-                Shop
+                {t("shop")}
               </Link>
             </div>
           </div>
 
-          {/* Company */}
+          {/* --- Company --- */}
           <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
-              Company
+              {t("company")}
             </h3>
             <div className="flex flex-col gap-2">
               <Link
                 href="/about"
                 className="text-sm md:text-base lg:text-lg hover:underline"
               >
-                About
+                {t("about")}
               </Link>
               <Link
                 href="/team"
                 className="text-sm md:text-base lg:text-lg hover:underline"
               >
-                Team
+                {t("team")}
               </Link>
             </div>
           </div>
 
-          {/* Connect */}
+          {/* --- Connect --- */}
           <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
-              Connect
+              {t("connect")}
             </h3>
             <div className="flex flex-col gap-2">
               <Link
                 href="/contact"
                 className="text-sm md:text-base lg:text-lg hover:underline"
               >
-                Contact
+                {t("contact")}
               </Link>
               <Link
                 href="https://zalo.me"
@@ -87,16 +91,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Mail for more informations */}
+          {/* --- Newsletter --- */}
           <div>
             <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">
-              Mail for more informations
+              {t("newsletterTitle")}
             </h3>
             <div className="flex gap-2">
               <Input
                 type="email"
-                placeholder="Enter your email ..."
-                className="bg-white border-none"
+                placeholder={t("emailPlaceholder")}
+                className="bg-white border-none placeholder:text-gray-400"
               />
               <Button className="bg-[#FF9B7E] hover:bg-[#FF8A6B] text-white px-3">
                 <ArrowRight className="h-5 w-5" />
@@ -104,7 +108,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Category Landing Page Image */}
+          {/* --- Image --- */}
           <div className="flex justify-center items-center">
             <Image
               src={catLandingPage}

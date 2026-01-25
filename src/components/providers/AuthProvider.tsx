@@ -7,6 +7,12 @@ import { apiClient } from "@/lib/api/client";
 import { endpoints } from "@/lib/api/endpoints";
 import { setCredentials, logout } from "@/store/slices/authSlice";
 
+const getRefreshToken = (): string | null => {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(/(?:^|;\s*)refresh_token=([^;]*)/);
+  return match ? decodeURIComponent(match[1]) : null;
+};
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const dispatch = useDispatch();
   const [isInitializing, setIsInitializing] = useState(true);
@@ -20,7 +26,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           dispatch(
             setCredentials({
               accessToken: data.result.accessToken,
-            })
+            }),
           );
         }
       } catch (error) {
@@ -31,7 +37,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     };
 
-    initAuth();
+    const refreshToken = getRefreshToken();
+    if (refreshToken) {
+      initAuth();
+    } else {
+      setIsInitializing(false);
+    }
   }, [dispatch]);
 
   if (isInitializing) {

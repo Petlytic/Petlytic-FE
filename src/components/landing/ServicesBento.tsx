@@ -1,30 +1,36 @@
 "use client";
 
-import Link from "next/link";
+// 1. Dùng Link từ routing i18n
+import { Link } from "@/i18n/routing";
 import vetServiceIcon from "@/assets/vetServiceIcon.png";
 import petSpaIcon from "@/assets/petSpaIcon.png";
 import petHotelIcon from "@/assets/petHotelIcon.png";
 import Image from "next/image";
+// 2. Import hook
+import { useTranslations } from "next-intl";
 
 export const ServicesBento = () => {
+  // 3. Khai báo hook
+  const t = useTranslations("LandingPage.ServicesBento");
+
   const services = {
     vet: {
       href: "/booking",
       bgColor: "bg-orange-100 hover:bg-orange-200",
-      title: "Vet Services",
-      desc: "Health consulting",
+      title: t("vetTitle"), // Gọi key từ JSON
+      desc: t("vetDesc"),
     },
     spa: {
       href: "/booking",
       bgColor: "bg-blue-100 hover:bg-blue-200",
-      title: "Pet Spa",
-      desc: "Wellness relaxing",
+      title: t("spaTitle"),
+      desc: t("spaDesc"),
     },
     hotel: {
       href: "/booking",
       bgColor: "bg-green-100 hover:bg-green-200",
-      title: "Pet Hotel",
-      desc: "Comfortable staying",
+      title: t("hotelTitle"),
+      desc: t("hotelDesc"),
     },
   };
 
@@ -32,10 +38,10 @@ export const ServicesBento = () => {
     "rounded-3xl p-12 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md hover:scale-[1.02] flex items-center gap-6 h-full";
 
   return (
-    <section className="py-16 ">
-      {" "}
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full items-stretch">
+          {/* VET SERVICE CARD */}
           <Link href={services.vet.href} className="block h-full">
             <div className={`${services.vet.bgColor} ${cardClass}`}>
               <div className="shrink-0 border border-black/10 rounded-full p-2">
@@ -59,6 +65,7 @@ export const ServicesBento = () => {
           </Link>
 
           <div className="flex flex-col gap-6 h-full">
+            {/* SPA CARD */}
             <Link href={services.spa.href} className="flex-1">
               <div className={`${services.spa.bgColor} ${cardClass}`}>
                 <div className="shrink-0">
@@ -81,6 +88,7 @@ export const ServicesBento = () => {
               </div>
             </Link>
 
+            {/* HOTEL CARD */}
             <Link href={services.hotel.href} className="flex-1">
               <div
                 className={`${services.hotel.bgColor} ${cardClass} justify-end`}
